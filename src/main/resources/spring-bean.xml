@@ -46,7 +46,8 @@
 
 
     <bean id = "autoSetter" class = "jx.nc.achilsh.demo20210204.BeanXmlCall.DemoCall">
-        <!--> 通过成员setter 注入, 通过 setXx(), setOneDeo()注入<-->
+        <!--> 通过成员setter 注入, 通过 setXx(), setOneDeo()注入，如果有其他非默认构造函数，需要定义个默认构造函数，否则
+        spring没法实例化对象<-->
         <property name="xx"  value="22222" />
         <property name="oneDeo" ref="oneDemo" />
     </bean>
