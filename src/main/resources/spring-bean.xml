@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="oneDemo" class = "jx.nc.achilsh.demo20210204.BeanXml.OneDemo">
+        <!--->通过构造函数，设置字面量 </-->
+        <constructor-arg value="10"></constructor-arg>
+        <constructor-arg value="teestdemo"></constructor-arg>
+
+    </bean>
+    <bean id = "oneDemoList" class = "jx.nc.achilsh.demo20210204.BeanXml.OneDemo">
+        <constructor-arg value = "10"></constructor-arg>
+        <!--> 通过构造函数，参数为集合 <-->
+        <constructor-arg>
+            <list>
+                <value>
+                    123131ifadfa
+                </value>
+                <value>
+                    aaiifadfaf
+                </value>
+            </list>
+        </constructor-arg>
+
+
+    </bean>
+
+    <bean id = "demoCall" class = "jx.nc.achilsh.demo20210204.BeanXmlCall.DemoCall">
+        <!--> 通过构造函数设置 引用 <-->
+        <constructor-arg ref="oneDemo"> </constructor-arg>
+        <constructor-arg value="56789"></constructor-arg>
+    </bean>
+
+    <bean id = "demoCallSet" class ="jx.nc.achilsh.demo20210204.BeanXmlCall.DemoCall">
+        <!--> 通过构造函数设置 set 引用集合<-->
+        <constructor-arg>
+            <set>
+                <ref bean="oneDemoList"></ref>
+                <ref bean="oneDemo"></ref>
+            </set>
+        </constructor-arg>
+        <constructor-arg value="1231"></constructor-arg>
+
+    </bean>
+
+
+    <bean id = "autoSetter" class = "jx.nc.achilsh.demo20210204.BeanXmlCall.DemoCall">
+        <!--> 通过成员setter 注入, 通过 setXx(), setOneDeo()注入<-->
+        <property name="xx"  value="22222" />
+        <property name="oneDeo" ref="oneDemo" />
+    </bean>
+
+
+</beans>
